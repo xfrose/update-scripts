@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-export http_proxy=http://127.0.0.1:10808
-export https_proxy=$http_proxy
-export HTTP_PROXY=$http_proxy
-export HTTPS_PROXY=$http_proxy
+#export http_proxy=http://127.0.0.1:10808
+#export https_proxy=$http_proxy
+#export HTTP_PROXY=$http_proxy
+#export HTTPS_PROXY=$http_proxy
 
 # Get the local calibre version
 local_version=$(calibre --version | cut -d ' ' -f 3 | sed 's/)//')
@@ -29,7 +29,8 @@ else
   echo "Your calibre version is outdated: $local_version"
   echo "The latest calibre version is: $remote_version"
   echo "Updating calibre..."
-  # Update calibre using the official install script
+
+# Update calibre using the official install script
   sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
   echo "Calibre updated successfully!"
 fi
