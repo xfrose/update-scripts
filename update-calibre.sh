@@ -8,7 +8,7 @@
 local_version=$(calibre --version | cut -d ' ' -f 3 | sed 's/)//')
 
 # Get the remote calibre version
-remote_version=$(curl -s https://raw.githubusercontent.com/kovidgoyal/calibre/master/Changelog.txt | sed -n 's/^{{{ \([0-9]*\.[0-9]*[1-9]\)\.0 .*$/\1/p' | head -n 1)
+remote_version=$(curl -s https://raw.githubusercontent.com/kovidgoyal/calibre/master/Changelog.txt | grep -Po '{{{ \K\d+\.\d+\.\d+' | head -n 1)
 
 # Check if curl command succeeded
 if [ $? -ne 0 ]; then
